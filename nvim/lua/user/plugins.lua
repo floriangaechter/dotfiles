@@ -81,5 +81,11 @@ require("lazy").setup({
 
 	-- Git integration
 	{ import = 'user.plugins.gitsigns' },
+
+	-- Git commands
+	{ 'tpope/vim-fugitive', dependencies = 'tpope/vim-rhubarb' },
+
+	-- Floating terminal
+	{ import = 'user.plugins.floaterm' },
 })
 
