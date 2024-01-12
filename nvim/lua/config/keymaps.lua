@@ -3,3 +3,5 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("i", "jj", "<ESC>", { silent = true })
+vim.keymap.set("n", "∆", ":m+<CR>", { silent = true })
+vim.keymap.set("n", "˚", ":m-2<CR>", { silent = true })
