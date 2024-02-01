@@ -5,7 +5,6 @@ return {
       sections = {
         lualine_z = {},
       },
-      theme = "everforest",
     },
   },
 }

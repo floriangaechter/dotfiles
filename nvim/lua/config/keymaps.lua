@@ -5,5 +5,5 @@
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", ";;", "<Esc>A;<Esc>")
 vim.keymap.set("i", ",,", "<Esc>A,<Esc>")
-vim.keymap.set("n", "∆", ":m+<Cr>")
-vim.keymap.set("n", "˚", ":m-2<Cr>")
+vim.keymap.set("n", "∆", ":m+<Cr>", { silent = true, desc = "Move line up" })
+vim.keymap.set("n", "˚", ":m-2<Cr>", { silent = true, desc = "Move line down" })
