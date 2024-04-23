@@ -1,0 +1,39 @@
+(defcfg
+    input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+    output (uinput-sink "My KMonad output")
+    fallthrough true
+)
+
+
+(defsrc
+    u o
+    caps a
+    lalt
+)
+
+
+(defalias
+    caps_esc_ctrl (tap-next esc lctl)
+    umlts_tmp (around-next (layer-toggle umlauts_temp))
+    umlts (around-next (layer-toggle umlauts))
+)
+
+
+(deflayer querty
+    _ _
+    @caps_esc_ctrl _
+    @umlts_tmp
+)
+
+
+(deflayer umlauts_temp
+    @umlts _
+    _ _
+    _
+)
+
+(deflayer umlauts
+    ü ö
+    _ ä
+    _
+)
