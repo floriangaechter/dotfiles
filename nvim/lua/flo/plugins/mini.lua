@@ -7,14 +7,14 @@ return {
     end
     require('mini.starter').setup({
       items = {
-        new_section("Find file",       "Telescope find_files",                                   "Telescope"),
-        new_section("Recent files",    "Telescope oldfiles",                                     "Telescope"),
-        new_section("Grep text",       "Telescope live_grep",                                    "Telescope"),
-        new_section("Config",          "lua require('lazyvim.util').telescope.config_files()()", "Config"),
-        new_section("Lazy",            "Lazy",                                                   "Config"),
-        new_section("New file",        "ene | startinsert",                                      "Built-in"),
-        new_section("Quit",            "qa",                                                     "Built-in"),
-        new_section("Session restore", [[lua require("persistence").load()]],                    "Session"),
+        new_section("Find file",       "Telescope find_files",                                                            "Telescope"),
+        new_section("Recent files",    "Telescope oldfiles",                                                              "Telescope"),
+        new_section("Grep text",       "Telescope live_grep",                                                             "Telescope"),
+        new_section("Config",          "lua require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })", "Config"),
+        new_section("Lazy",            "Lazy",                                                                            "Config"),
+        new_section("New file",        "ene | startinsert",                                                               "Built-in"),
+        new_section("Quit",            "qa",                                                                              "Built-in"),
+        new_section("Session restore", [[lua require("persistence").load()]],                                             "Session"),
       },
     })
 
