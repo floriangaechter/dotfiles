@@ -2,7 +2,21 @@ return {
   'echasnovski/mini.nvim',
   config = function()
     -- Simple dashboard
-    require('mini.starter').setup()
+    local new_section = function(name, action, section)
+      return { name = name, action = action, section = section }
+    end
+    require('mini.starter').setup({
+      items = {
+        new_section("Find file",       "Telescope find_files",                                   "Telescope"),
+        new_section("Recent files",    "Telescope oldfiles",                                     "Telescope"),
+        new_section("Grep text",       "Telescope live_grep",                                    "Telescope"),
+        new_section("Config",          "lua require('lazyvim.util').telescope.config_files()()", "Config"),
+        new_section("Lazy",            "Lazy",                                                   "Config"),
+        new_section("New file",        "ene | startinsert",                                      "Built-in"),
+        new_section("Quit",            "qa",                                                     "Built-in"),
+        new_section("Session restore", [[lua require("persistence").load()]],                    "Session"),
+      },
+    })
 
     -- Better Around/Inside textobjects
     --

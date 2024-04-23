@@ -38,6 +38,9 @@ require('lazy').setup({
   -- Highlight todo, notes, etc in comments
   { import = 'flo.plugins.todo-comments' },
 
+  -- Session persistence
+  { import = 'flo.plugins.persistence' },
+
   -- Collection of various small independent plugins/modules
   { import = 'flo.plugins.mini' },
 
@@ -46,6 +49,9 @@ require('lazy').setup({
 
   -- Navigate between Neovim and tmux
   { import = 'flo.plugins.tmux-navigator' },
+
+  -- Basic mdx support
+  { import = 'flo.plugins.mdx' },
 }, {
   checker = {
     enabled = true,
