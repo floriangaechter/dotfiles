@@ -52,6 +52,9 @@ require('lazy').setup({
 
   -- Basic mdx support
   { import = 'flo.plugins.mdx' },
+
+  -- Harpoon
+  { import = 'flo.plugins.harpoon' },
 }, {
   checker = {
     enabled = true,
