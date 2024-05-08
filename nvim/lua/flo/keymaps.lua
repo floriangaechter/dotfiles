@@ -9,6 +9,10 @@ if arch:match('Darwin') then
   vim.keymap.set('n', '∆', ':m+<Cr>', { silent = true, desc = 'Move line up' })
   vim.keymap.set('n', '˚', ':m-2<Cr>', { silent = true, desc = 'Move line down' })
 end
+if arch:match('Linux') then
+  vim.keymap.set('n', '<M-j>', ':m+<Cr>', { silent = true, desc = 'Move line up' })
+  vim.keymap.set('n', '<M-k>', ':m-2<Cr>', { silent = true, desc = 'Move line down' })
+end
 
 -- Save file
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
