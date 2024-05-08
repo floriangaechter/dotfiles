@@ -1,11 +1,14 @@
--- Exit insert mode with jj ;; and ,,
+-- Get architecture information
+local arch = vim.fn.system('uname')
+
+-- Exit insert mode with jj
 vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
-vim.keymap.set('i', ';;', '<Esc>A;<Esc>', { desc = 'Append semicolon' })
-vim.keymap.set('i', ',,', '<Esc>A,<Esc>', { desc = 'Append comma' })
 
 -- Remap opt+j and opt+k to move lines on mac
-vim.keymap.set('n', '∆', ':m+<Cr>', { silent = true, desc = 'Move line up' })
-vim.keymap.set('n', '˚', ':m-2<Cr>', { silent = true, desc = 'Move line down' })
+if arch:match('Darwin') then
+  vim.keymap.set('n', '∆', ':m+<Cr>', { silent = true, desc = 'Move line up' })
+  vim.keymap.set('n', '˚', ':m-2<Cr>', { silent = true, desc = 'Move line down' })
+end
 
 -- Save file
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
