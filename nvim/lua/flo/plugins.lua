@@ -9,7 +9,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   -- Color scheme
-  { import = 'flo.plugins.gruvbox' },
+  { import = 'flo.plugins.tokyonight' },
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -55,6 +55,9 @@ require('lazy').setup({
 
   -- Harpoon
   { import = 'flo.plugins.harpoon' },
+
+  -- Neo-tree
+  { import = 'flo.plugins.neo-tree' },
 }, {
   checker = {
     enabled = true,
