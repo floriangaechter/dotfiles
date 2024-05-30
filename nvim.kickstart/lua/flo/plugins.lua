@@ -58,6 +58,9 @@ require('lazy').setup({
 
   -- Neo-tree
   { import = 'flo.plugins.neo-tree' },
+  
+  -- Neo-tree
+  { import = 'flo.plugins.intelephense' },
 }, {
   checker = {
     enabled = true,
