@@ -2,8 +2,9 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
-rm -rf $HOME/.config/tmux
-ln -s $DOTFILES/tmux $HOME/.config/tmux
+rm -rf $HOME/.config/tmux/tmux.conf
+mkdir -p $HOME/.config/tmux
+ln -s $DOTFILES/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
 
 mkdir -p $HOME/.local/bin
 rm -rf $HOME/.local/bin/t
