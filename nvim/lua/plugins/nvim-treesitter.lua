@@ -14,6 +14,7 @@ return {
 				"json",
 				"lua",
 				"markdown",
+				"php",
 				"query",
 				"typescript",
 				"vim",
