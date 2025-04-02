@@ -1,14 +1,37 @@
 #!/bin/bash
 
-BATTERY_DIR="/sys/class/power_supply/BAT0"
-
 _get_battery_status() {
+    local _current_status
+    local _charging="Yes"
+
     if [[ `uname` == 'Linux' ]]; then
-        _current_status=$(cat /proc/acpi/battery/BAT1/state | grep 'remaining capacity' | awk '{print $3}')
+        # Check if both battery files exist
+        if [[ -f "/sys/class/power_supply/BAT0/capacity" && -f "/sys/class/power_supply/BAT1/capacity" ]]; then
+            # Get capacity of both batteries
+            local _bat0_capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+            local _bat1_capacity=$(cat /sys/class/power_supply/BAT1/capacity)
+
+            # Average the capacities
+            _current_status=$(( (_bat0_capacity + _bat1_capacity) / 2 ))
+
+            # Check if either battery is charging
+            if [[ -f "/sys/class/power_supply/BAT0/status" && $(cat /sys/class/power_supply/BAT0/status) == "Discharging" ]] || \
+               [[ -f "/sys/class/power_supply/BAT1/status" && $(cat /sys/class/power_supply/BAT1/status) == "Discharging" ]]; then
+                _charging="No"
+            fi
+        elif [[ -f "/sys/class/power_supply/BAT0/capacity" ]]; then
+            # Only BAT0 exists
+            _current_status=$(cat /sys/class/power_supply/BAT0/capacity)
+            [[ -f "/sys/class/power_supply/BAT0/status" && $(cat /sys/class/power_supply/BAT0/status) == "Discharging" ]] && _charging="No"
+        elif [[ -f "/sys/class/power_supply/BAT1/capacity" ]]; then
+            # Only BAT1 exists
+            _current_status=$(cat /sys/class/power_supply/BAT1/capacity)
+            [[ -f "/sys/class/power_supply/BAT1/status" && $(cat /sys/class/power_supply/BAT1/status) == "Discharging" ]] && _charging="No"
+        fi
     else
-        battery_info=`ioreg -rc AppleSmartBattery`
-        _current_status=$(echo $battery_info | grep -o '"CurrentCapacity" = [0-9]\+' | awk '{print $3}')
-        _charging=$(echo $battery_info | grep -o '"ExternalConnected" = Yes' | awk '{print $3}')
+        local _battery_info=`ioreg -rc AppleSmartBattery`
+        _current_status=$(echo $_battery_info | grep -o '"CurrentCapacity" = [0-9]\+' | awk '{print $3}')
+        _charging=$(echo $_battery_info | grep -o '"ExternalConnected" = Yes' | awk '{print $3}')
     fi
 
     if [ "$_current_status" -le "20" ]; then
