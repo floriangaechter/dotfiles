@@ -53,11 +53,7 @@ return {
 			enabled = true,
 		},
 		notifier = { enabled = true },
-		styles = {
-			notification = {
-				wo = { wrap = true },
-			},
-		},
+		words = { enabled = true },
 	},
 	keys = {
 		-- Top Pickers & Explorer
