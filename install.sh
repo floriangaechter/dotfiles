@@ -9,6 +9,7 @@ ln -s $DOTFILES/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
 mkdir -p $HOME/.local/bin
 rm -rf $HOME/.local/bin/t
 rm -rf $HOME/.local/bin/battery
+ln -s $DOTFILES/scripts/t.sh $HOME/.local/bin/t
 ln -s $DOTFILES/scripts/battery.sh $HOME/.local/bin/battery
 
 rm -rf $HOME/.config/nvim

@@ -8,6 +8,7 @@ _get_battery_status() {
     else
         battery_info=`ioreg -rc AppleSmartBattery`
         _current_status=$(echo $battery_info | grep -o '"CurrentCapacity" = [0-9]\+' | awk '{print $3}')
+        _charging=$(echo $battery_info | grep -o '"ExternalConnected" = Yes' | awk '{print $3}')
     fi
 
     if [ "$_current_status" -le "20" ]; then
@@ -24,7 +25,7 @@ _get_battery_status() {
 
     printf "  $_current_status%%"
 
-    [ "$_current_status" = "Charging" ] && printf   
+    [ "$_charging" = "Yes" ] && printf " "
 }
 
 _get_battery_status
