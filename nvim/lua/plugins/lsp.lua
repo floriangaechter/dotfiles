@@ -18,6 +18,7 @@ return {
 					"vtsls",
 				},
 			})
+
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
 					require("lspconfig")[server_name].setup({})
@@ -39,10 +40,26 @@ return {
 					-- Buffer local mappings.
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = ev.buf }
-					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-					vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-					vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-					vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("error", opts, { desc = "hover" }))
+					vim.keymap.set(
+						"n",
+						"<C-k>",
+						vim.lsp.buf.signature_help,
+						vim.tbl_extend("error", opts, { desc = "signature help" })
+					)
+					vim.keymap.set(
+						"n",
+						"<space>rn",
+						vim.lsp.buf.rename,
+						vim.tbl_extend("error", opts, { desc = "[r]e[n]ame" })
+					)
+					vim.keymap.set(
+						{ "n", "v" },
+						"<space>ca",
+						vim.lsp.buf.code_action,
+						vim.tbl_extend("error", opts, { desc = "[c]ode [a]ction" })
+					)
 				end,
 			})
 
@@ -68,6 +85,7 @@ return {
 							[vim.diagnostic.severity.INFO] = diagnostic.message,
 							[vim.diagnostic.severity.HINT] = diagnostic.message,
 						}
+
 						return diagnostic_message[diagnostic.severity]
 					end,
 				},

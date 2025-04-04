@@ -20,22 +20,22 @@ return {
 				return nil
 			else
 				return {
-					timeout_ms = 500,
+					timeout_ms = 1000,
 					lsp_format = "fallback",
 				}
 			end
 		end,
 		formatters_by_ft = {
-			astro = { "prettier" },
-			css = { "prettier" },
-			html = { "prettier" },
-			javascript = { "prettier" },
-			javascriptreact = { "prettier" },
-			json = { "prettier" },
+			astro = { "prettierd" },
+			css = { "prettierd" },
+			html = { "prettierd" },
+			javascript = { "prettierd" },
+			javascriptreact = { "prettierd" },
+			json = { "prettierd" },
 			lua = { "stylua" },
 			markdown = { "markdownlint-cli2" },
-			typescript = { "prettier" },
-			typescriptreact = { "prettier" },
+			typescript = { "prettierd" },
+			typescriptreact = { "prettierd" },
 		},
 	},
 }
