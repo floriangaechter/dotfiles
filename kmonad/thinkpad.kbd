@@ -4,16 +4,13 @@
     fallthrough true
 )
 
-
 (defsrc
     caps
 )
 
-
 (defalias
     caps_esc_ctrl (tap-next esc lctl)
 )
-
 
 (deflayer querty
     @caps_esc_ctrl
