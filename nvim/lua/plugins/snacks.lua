@@ -41,13 +41,9 @@ return {
 		dashboard = {
 			sections = {
 				{
-					section = "terminal",
-					cmd = "chafa ~/.config/nvim/neovim.png --format symbols --symbols vhalf --size 12; sleep .1",
-					height = 8,
-					indent = 24,
-					padding = { 4, 0 },
+					section = "header",
 				},
-				{ section = "keys", gap = 1, padding = 1 },
+				{ section = "keys",   gap = 1, padding = 1 },
 				{ section = "startup" },
 			},
 			preset = {
