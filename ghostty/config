@@ -1,0 +1,28 @@
+command = zsh -ilc ghostty-tmux
+font-family = MonaspiceNe NF
+font-family-bold = MonaspiceNe NF
+font-family-italic = MonaspiceNe NF
+font-family-bold-italic = MonaspiceNe NF
+font-style = Regular
+font-style-bold = Bold
+font-style-italic = Italic
+font-style-bold-italic = Bold Italic
+font-size = 14
+font-thicken = true
+adjust-cell-height = 40%
+adjust-underline-position = 8
+adjust-cursor-thickness = 4
+adjust-underline-thickness = 1
+adjust-cursor-height = 20
+cursor-style = block
+
+maximize = true
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+
+background-opacity = 0.97
+background-blur-radius = 20
+unfocused-split-opacity = 0.25
+
+theme = miniwinter

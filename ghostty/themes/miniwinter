@@ -1,0 +1,34 @@
+# Icy Winter (Dark) - Ghostty Theme
+# Converted from mini.hues Neovim theme
+
+# Background and foreground
+background = #11262d
+foreground = #d8d4cd
+
+# Cursor
+cursor-color = #d8d4cd
+cursor-text = #11262d
+
+# Selection
+selection-background = #2c4249
+selection-foreground = #d8d4cd
+
+# Normal colors
+palette = 0=#000f15
+palette = 1=#fac5c7
+palette = 2=#b8e1c1
+palette = 3=#d9d8aa
+palette = 4=#b3daf9
+palette = 5=#edc7e7
+palette = 6=#a6e1e2
+palette = 7=#d8d4cd
+
+# Bright colors
+palette = 8=#485f67
+palette = 9=#fac5c7
+palette = 10=#b8e1c1
+palette = 11=#d9d8aa
+palette = 12=#b3daf9
+palette = 13=#edc7e7
+palette = 14=#a6e1e2
+palette = 15=#f4f0e9
