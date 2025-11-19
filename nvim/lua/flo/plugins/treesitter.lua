@@ -2,7 +2,17 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   opts = {
-    ensure_installed = { "lua", "vim", "vimdoc" },
+    ensure_installed = {
+      "html",
+      "css",
+      "lua",
+      "vim",
+      "vimdoc",
+      "go",
+      "typescript",
+      "tsx",
+      "javascript",
+    },
     auto_install = true,
     highlight = {
       enable = true,

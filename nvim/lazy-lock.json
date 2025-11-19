@@ -5,6 +5,7 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "b1d9a914b02ba5660f1e272a03314b31d4576fe2" },
   "mason.nvim": { "branch": "main", "commit": "ad7146aa61dcaeb54fa900144d768f040090bff0" },
   "mini-git": { "branch": "main", "commit": "832467238636e3dfa1db76de929996b6668c35ef" },
+  "mini.clue": { "branch": "main", "commit": "015320e67c993a21bf3ced60f8278fd03f7075c1" },
   "mini.diff": { "branch": "main", "commit": "fbb93ea1728e7c9d0944df8bd022a68402bd2e7e" },
   "mini.files": { "branch": "main", "commit": "26baa6215c2e5c40ba7fe82685d827fe8e5c68c8" },
   "mini.hues": { "branch": "main", "commit": "5621394352eefaba28a9c7051687abaa1d09ee0b" },

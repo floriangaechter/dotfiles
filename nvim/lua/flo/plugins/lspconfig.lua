@@ -13,38 +13,10 @@ return {
       },
       float = { border = "rounded" },
     })
-    vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("flo-lsp-attach", { clear = true }),
-      callback = function(args)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-          buffer = args.buf,
-          desc = "Go to definition",
-        })
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, {
-          buffer = args.buf,
-          desc = "Find references",
-        })
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, {
-          buffer = args.buf,
-          desc = "Hover documentation",
-        })
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
-          buffer = args.buf,
-          desc = "Code action",
-        })
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
-          buffer = args.buf,
-          desc = "Rename symbol",
-        })
-      end,
+    vim.lsp.enable({
+      "gopls",
+      "lua_ls",
+      "vtsls",
     })
-    vim.lsp.config("lua_ls", {
-      settings = {
-        Lua = {
-          diagnostics = { globals = { "vim" } },
-        },
-      },
-    })
-    vim.lsp.enable("lua_ls")
   end,
 }
