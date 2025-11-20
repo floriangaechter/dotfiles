@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
-# Directories to search
-roots=( "$HOME/Code" "$HOME/Developer" "$HOME/Developer/private" )
-
-# If a path argument is given, use it; otherwise, pick one via fzf
 if [[ $# -eq 1 ]]; then
-  selected=$1
+    selected=$1
 else
-  selected="$(
-    fd -a -t d -d 1 . "${roots[@]}" 2>/dev/null \
-    | sort -u \
-    | fzf --select-1 --exit-0
-  )"
+    selected=$(find ~/Developer ~/Developer/private -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
-# Exit if nothing selected
-[[ -z "${selected:-}" ]] && exit 0
+if [[ -z $selected ]]; then
+    exit 0
+fi
 
-# Generate a tmux-safe session name from the leaf directory
-session="$(basename -- "$selected" | tr -c '[:alnum:]_-' '_')"
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
 
-# Switch to existing session, or create/attach if missing
-tmux switch-client -t "=${session}" 2>/dev/null || tmux new-session -As "$session" -c "$selected"
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected
+    exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+    tmux new-session -ds $selected_name -c $selected
+fi
+
+tmux switch-client -t $selected_name
