@@ -27,9 +27,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
       buffer = args.buf,
       desc = "Rename symbol",
     })
+    vim.keymap.set("n", "<leader>d", function()
+      vim.diagnostic.open_float(nil, { focus = false, border = "single" })
+    end, { desc = "Show line diagnostics" })
   end,
 })
-
 
 -- Open mini.files when opening a directory
 vim.api.nvim_create_autocmd("VimEnter", {

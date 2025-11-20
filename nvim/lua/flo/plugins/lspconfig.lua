@@ -3,6 +3,7 @@ return {
   dependencies = { "williamboman/mason-lspconfig.nvim" },
   config = function()
     vim.diagnostic.config({
+      virtual_text = true,
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = " ",
@@ -11,7 +12,6 @@ return {
           [vim.diagnostic.severity.INFO] = " ",
         },
       },
-      float = { border = "rounded" },
     })
     vim.lsp.enable({
       "gopls",

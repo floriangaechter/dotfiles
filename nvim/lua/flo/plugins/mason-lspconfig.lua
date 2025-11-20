@@ -3,7 +3,7 @@ return {
   dependencies = { "williamboman/mason.nvim" },
   config = function()
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "gopls", "vtsls", },
+      ensure_installed = { "lua_ls", "gopls", "stylua", "vtsls", },
     })
   end,
 }

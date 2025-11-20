@@ -36,9 +36,3 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
-
--- Rounded borders for floating windows
-vim.opt.pumblend = 10  -- Slight transparency for popup menu
-vim.diagnostic.config({
-  float = { border = "rounded" },
-})
