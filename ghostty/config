@@ -15,6 +15,7 @@ adjust-cursor-thickness = 4
 adjust-underline-thickness = 1
 adjust-cursor-height = 20
 cursor-style = block
+window-decoration = none
 
 maximize = true
 window-padding-x = 8
