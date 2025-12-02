@@ -19,3 +19,5 @@ ln -s $DOTFILES/nvim $HOME/.config/nvim
 
 rm -rf $HOME/.config/ghostty
 ln -s $DOTFILES/ghostty $HOME/.config/ghostty
+
+echo "Make sure to update /etc/keyd/default.conf"
