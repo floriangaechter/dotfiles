@@ -14,3 +14,9 @@ vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
 
 -- Quit Neovim with <leader>q
 vim.keymap.set("n", "<leader>q", ":confirm q<CR>", { noremap = true, silent = true })
+
+-- "fix" q
+vim.keymap.set("n", "q:", "<nop>")
+vim.keymap.set("n", "q/", "<nop>")
+vim.keymap.set("n", "q?", "<nop>")
+vim.keymap.set("n", "Q", "<nop>")

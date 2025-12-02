@@ -1,3 +1,11 @@
+vim.filetype.add({
+  extension = {
+    gohtml = "gohtml",
+  }
+})
+
+vim.treesitter.language.register('gotmpl', 'gohtml')
+
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
@@ -9,6 +17,7 @@ return {
       "vim",
       "vimdoc",
       "go",
+      "gotmpl",
       "typescript",
       "tsx",
       "javascript",

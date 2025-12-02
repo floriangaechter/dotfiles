@@ -6,6 +6,7 @@ vim.g.maplocalleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
 
 -- Indentation
 vim.opt.tabstop = 2

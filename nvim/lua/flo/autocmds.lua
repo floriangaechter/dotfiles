@@ -1,11 +1,13 @@
+-- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("flo", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("flo-lsp-attach", { clear = true }),
+  group = vim.api.nvim_create_augroup("flo", { clear = true }),
   callback = function(args)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
       buffer = args.buf,
@@ -35,7 +37,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Open mini.files when opening a directory
 vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("flo-open-directory", { clear = true }),
+  group = vim.api.nvim_create_augroup("flo", { clear = true }),
   callback = function(args)
     local path = args.file
     if vim.fn.isdirectory(path) == 1 then
@@ -43,4 +45,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
       require("mini.files").open(path)
     end
   end,
+})
+
+-- Restore cursor position when reopening a file
+vim.api.nvim_create_autocmd('BufReadPost', {
+    group   = vim.api.nvim_create_augroup("flo", { clear = true }),
+    pattern = '*',
+    command = [[if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif]]
 })
