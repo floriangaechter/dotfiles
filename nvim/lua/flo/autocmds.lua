@@ -6,8 +6,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
+-- Open mini.files when opening a directory
+vim.api.nvim_create_autocmd("VimEnter", {
   group = vim.api.nvim_create_augroup("flo", { clear = true }),
+  callback = function(args)
+    local path = args.file
+    if vim.fn.isdirectory(path) == 1 then
+      vim.cmd("bd") -- Close the directory buffer
+      require("mini.files").open(path)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("flo-lsp", { clear = true }),
   callback = function(args)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
       buffer = args.buf,
@@ -32,18 +44,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>d", function()
       vim.diagnostic.open_float(nil, { focus = false, border = "single" })
     end, { desc = "Show line diagnostics" })
-  end,
-})
-
--- Open mini.files when opening a directory
-vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("flo", { clear = true }),
-  callback = function(args)
-    local path = args.file
-    if vim.fn.isdirectory(path) == 1 then
-      vim.cmd("bd") -- Close the directory buffer
-      require("mini.files").open(path)
-    end
   end,
 })
 
