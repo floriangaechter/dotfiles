@@ -7,10 +7,10 @@ return {
       function()
         require("mini.files").open()
       end,
-      desc = "Open file explorer",
+      desc = "file explorer",
     },
   },
   config = function()
-    require("mini.files").setup({ windows = { preview = true } })
+    require("mini.files").setup({ windows = { preview = true, width_preview = 50 } })
   end,
 }

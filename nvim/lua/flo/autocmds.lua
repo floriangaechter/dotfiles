@@ -23,27 +23,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
       buffer = args.buf,
-      desc = "Go to definition",
+      desc = "[g]o to [d]efinition",
     })
     vim.keymap.set("n", "gr", vim.lsp.buf.references, {
       buffer = args.buf,
-      desc = "Find references",
+      desc = "[g]o to [r]eferences",
     })
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {
       buffer = args.buf,
-      desc = "Hover documentation",
+      desc = "[K]hover documentation",
     })
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
       buffer = args.buf,
-      desc = "Code action",
+      desc = "[c]ode [a]ction",
     })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
       buffer = args.buf,
-      desc = "Rename symbol",
+      desc = "[r]e[n]ame symbol",
     })
     vim.keymap.set("n", "<leader>d", function()
       vim.diagnostic.open_float(nil, { focus = false, border = "single" })
-    end, { desc = "Show line diagnostics" })
+    end, { desc = "show line [d]iagnostics" })
   end,
 })
 

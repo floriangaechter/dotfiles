@@ -7,21 +7,21 @@ return {
       function()
         require("mini.pick").builtin.files()
       end,
-      desc = "Find files",
+      desc = "find files",
     },
     {
       "<leader>fg",
       function()
         require("mini.pick").builtin.grep_live()
       end,
-      desc = "Grep text",
+      desc = "grep text",
     },
     {
       "<leader>fb",
       function()
         require("mini.pick").builtin.buffers()
       end,
-      desc = "Find buffers",
+      desc = "find buffers",
     },
   },
   config = function()
